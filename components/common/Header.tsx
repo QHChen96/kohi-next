@@ -46,7 +46,11 @@ const Header: React.FC<Props> = ({ className, children, navMenus=[] }) => {
                     <IconSearch size={28} />
                   </li>
                   <li css={tw`inline-block mx-4 cursor-pointer`}>
-                    <IconAccount size={28} />
+                    <Link href={`/account`} >
+                      <a>
+                        <IconAccount size={28} />
+                      </a>
+                    </Link>
                   </li>
                   <li css={tw`inline-block mx-4 cursor-pointer`}>
                     <IconBag size={28} />

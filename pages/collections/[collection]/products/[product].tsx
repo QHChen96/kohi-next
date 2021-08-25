@@ -26,6 +26,12 @@ const heightFull = `
     padding-bottom: 150%;
   }
 `
+const noScrollBar = `
+  &::-webkit-scrollbar {
+    background: 0 0;
+    width: 0;
+  }
+`
 const product = {
   productId: 1,
   title: "Green Scalloped Edge V-Neck Printed Bottom Bikini",
@@ -61,6 +67,9 @@ const product = {
   images: [
     "https://cdn.shopify.com/s/files/1/0784/0207/products/3_1d9b3357-9cc7-43b0-824b-2b4fde6112c9_800x.jpg",
     "https://cdn.shopify.com/s/files/1/0784/0207/products/4_74e9ffa6-81bc-4795-8483-05cbf2671a98.jpg",
+    "https://cdn.shopify.com/s/files/1/0784/0207/products/CSN0093EB.jpg",
+    "https://cdn.shopify.com/s/files/1/0784/0207/products/CSN0093EB.jpg",
+    "https://cdn.shopify.com/s/files/1/0784/0207/products/CSN0093EB.jpg",
     "https://cdn.shopify.com/s/files/1/0784/0207/products/CSN0093EB.jpg"
   ],
   description: "Put a fun spin to your summer repertoire with our Eva Wave Striped V-neck Sleeveless Dress. This sleeveless piece features knee-length dress. Decked with wave stripe print to lend a chic and minimalistic touch.",
@@ -151,15 +160,17 @@ export default function Products() {
           <BreadcrumbItem>Eva Wave Striped V-neck Sleeveless Dress</BreadcrumbItem>
         </Breadcrumb>
         <div css={tw`flex flex-row`}>
-          <div css={tw`height[735px] xl:(width[632px]) xl:(ml-12) flex flex-row overflow-hidden`}>
-            <div css={tw``}>
-              {
-                product.images.map(image => (
-                  <div key={image} css={[tw`relative width[100px] block overflow-hidden not-last-of-type:mb-6`, heightFull]}>
-                    <Image css={tw`w-full h-full absolute top-0`} objectFit="contain" layout="fill" src={image} alt={product.title} />
-                  </div>
-                ))
-              }
+          <div css={tw`height[735px] xl:(width[632px]) ml-12 flex flex-row overflow-hidden padding-left[100px] relative`}>
+            <div css={tw`width[100px] flex absolute left-0 flex-col flex-nowrap height[735px]`}>
+              <div css={[tw`flex-1 flex-shrink-0 relative overflow-y-auto scrollbar-width[none]`, noScrollBar]}>
+                {
+                  product.images.map(image => (
+                    <div key={image} css={[tw`relative width[100px] block overflow-hidden not-last-of-type:mb-6`, heightFull]}>
+                      <Image css={tw`w-full h-full absolute top-0`} objectFit="contain" layout="fill" src={image} alt={product.title} />
+                    </div>
+                  ))
+                }
+              </div>
             </div>
             <div css={tw`mx-6`}>
               <div css={[tw`relative width[490px] block overflow-hidden`, heightFull]}>

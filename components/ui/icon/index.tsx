@@ -52,14 +52,14 @@ const IconUnChecked: FC<IconProps> = ({ size=24 }) => {
 }
 const IconPlus: FC<IconProps> = ({ size=12 }) => {
   return (
-    <svg width={size} height={size} aria-hidden="true" focusable="false" role="presentation">
+    <svg css={tw`m-0 p-0`} width={size} height={size} aria-hidden="true" focusable="false" role="presentation">
       <path d="M1.5 5h7M5 1.5v7" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"></path>
     </svg>
   )
 }
 const IconMinus: FC<IconProps> = ({ size=12 }) => {
   return (
-    <svg width={size} height={size} aria-hidden="true" focusable="false" role="presentation">
+    <svg css={tw`m-0 p-0`} width={size} height={size} aria-hidden="true" focusable="false" role="presentation">
       <path d="M1.5 5h7" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"></path>
     </svg>
   )
@@ -94,4 +94,11 @@ const IconStar: FC<IconProps> = () => {
   )
 }
 
-export { IconHeart, IconSearch, IconAccount, IconBag, IconClose, IconUnChecked, IconChecked, IconFilterArrow, IconFavor, IconPlus, IconMinus, IconStar }
+const IconBack: FC<IconProps> = () => {
+  return (
+    <svg width="5" height="7" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 6L1 3.5 4 1"/>
+    </svg>
+  )
+}
+export { IconHeart, IconSearch, IconAccount, IconBag, IconClose, IconUnChecked, IconChecked, IconFilterArrow, IconFavor, IconPlus, IconMinus, IconStar, IconBack }
